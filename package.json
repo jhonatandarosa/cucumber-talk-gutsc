@@ -1,0 +1,9 @@
+{
+	"project": "cucumber-talk-gutsc",
+	"description": "Cucumber talk for GUTSC",
+	"repository": "git@github.com:jhonatandarosa/cucumber-talk-gutsc.git",
+	"license": "MIT",
+	"dependencies": {
+		
+	}
+}

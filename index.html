@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Integração de testes automatizados e documentação "viva"</title>
+
+    <link rel="stylesheet" href="reveal/css/reveal.css">
+    <!--<link rel="stylesheet" href="reveal/css/theme/simple.css">-->
+    <link rel="stylesheet" href="digitro.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!--<link rel="stylesheet" href="reveal/lib/css/zenburn.css">-->
+    <link rel="stylesheet" href="highlightjs/styles/darcula.css">
+    <script src="highlightjs/highlight.pack.js"></script>
+
+    <!-- TOC-Progress plugin -->
+    <link rel="stylesheet" href="reveal/plugin/toc-progress/toc-progress.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal/css/print/pdf.css' : 'reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <script src="reveal/lib/js/head.min.js"></script>
+    <script src="reveal/js/reveal.js"></script>
+
+    <script>
+        function init() {
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                controls: false,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    //{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    {src: 'reveal/plugin/markdown/marked.js'},
+                    {src: 'reveal/plugin/markdown/markdown.js'},
+                    {src: 'reveal/plugin/notes/notes.js', async: true},
+                    {
+                        src: 'reveal/plugin/highlight/highlight.js',
+                        async: true,
+                        callback: () => {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    // TOC-Progress plugin
+                    {
+                        src: 'reveal/plugin/toc-progress/toc-progress.js',
+                        async:
+                            true,
+                        callback: () => {
+                            toc_progress.initialize();
+                            toc_progress.create();
+                            replaceFontWeights();
+                        }
+                    }
+                ]
+            })
+            ;
+        }
+
+        function replaceFontWeights() {
+            const style = document.querySelector('#toc-progress-style');
+            let content = style.textContent;
+            content = content.replace(new RegExp('font-weight: bold;', 'g'), 'color: #96A72C;\nfont-weight: normal;');
+            style.textContent = content;
+        }
+    </script>
+
+    <link rel="stylesheet" href="slides.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+
+        <section data-state="no-toc-progress">
+            <h2 class="no-toc-progress">Integração de testes automatizados e documentação "viva"</h2>
+            <h3></h3>
+            <p>
+                <small class="emphasis">Jhonatan da Rosa</small>
+                <br/>
+                <small class="emphasis">Sérgio Murilo Marcos Lopes</small>
+                <br/>
+                <small class="emphasis">@ Dígitro Tecnologia</small>
+            </p>
+        </section>
+
+        <!--<section class="slide">-->
+        <!--<h1 class="no-toc-progress">Agenda</h1>-->
+        <!--<div class="content">-->
+        <!--<ul>-->
+        <!--<li>Continuous Integration/Delivery</li>-->
+        <!--<li>The Challenge</li>-->
+        <!--<li>Buildbot</li>-->
+        <!--<li>How we did it</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</section>-->
+
+        <section>
+            <section>
+                <h2>O Início (2011-2012)</h2>
+            </section>
+            <section>
+                <h3>O sistema na época</h3>
+                <div class="content">
+                    <ul>
+                        <li>GWT-Ext</li>
+                        <li>Monolito</li>
+                        <li>+40 módulos</li>
+                        <li>Chrome + Firefox</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Situação dos testes</h3>
+                <div class="content">
+                    <h4>O que existia?</h4>
+                    <ul>
+                        <li>0 testes de aceitação</li>
+                        <li>0 testes de integração</li>
+                        <li>poucos testes unitários</li>
+                    </ul>
+                    <br/>
+                    <br/>
+                    <h4>Objetivos</h4>
+                    <ul>
+                        <li>Reduzir carga de testes manuais</li>
+                        <li>Deixar a homologação mais rápida</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Solução</h3>
+                <div class="content">
+                    <img class="logo" src="imgs/logos/junit.png"/>
+                    <img class="logo" src="imgs/logos/selenium.png"/>
+                    <img class="logo" src="imgs/logos/jenkins.png"/>
+                </div>
+            </section>
+        </section>
+
+        <section>
+
+            <section>
+                <h2></h2>
+                <div class="content">
+                    Slide sobre os problemas relacionados a falta de documentação
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Cucumber -->
+
+        <section>
+            <section>
+                <h2><img src="imgs/logos/cucumber-logo.svg" class="title"/><span class="hidden">Cucumber</span></h2>
+                <div class="content">
+                </div>
+            </section>
+            <section>
+                <h3>O que é</h3>
+                <div class="content">
+                    <blockquote>Uma ferramenta open-source para especificações executáveis</blockquote>
+                    <br/>
+                    <br/>
+                    <a href="http://cucumber.io">Cucumber</a>
+                </div>
+            </section>
+            <section>
+                <h3>Características</h3>
+                <div class="content">
+                    <ul>
+                        <li>Uma única fonte de verdade</li>
+                        <li>Foco no consumidor</li>
+                        <li>Documentação Viva</li>
+                        <li>Menos retrabalho</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>É</h3>
+                <div class="content">
+                    <ul class="small-li">
+                        <li>Suporte a várias linguagens (Java, JS, C++, Python, ...)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Exemplo de .feature</h3>
+                <pre><code class="hljs" data-trim data-noescape>
+                    <span class="hljs-section">Funcionalidade</span> Servir café
+                      Café não deve ser servido até que seja pago
+                      Café não deve ser servido até o botão ser pressionado
+                      Se não há café disponível então o dinheiro deve ser devolvido
+
+                    <span class="hljs-section">Cenário</span> Comprar o último café
+                      <span class="hljs-section">Dado</span> que existe somente 1 café disponível na máquina
+                      <span class="hljs-section">E</span> eu coloquei R$ 1,00
+                      <span class="hljs-section">Quando</span> eu pressionar o botão de café
+                      <span class="hljs-section">Então</span> 1 café deve ser servido
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+
+            <section>
+                <h2></h2>
+                <div class="content">
+                    <h4>Dados (2015)</h4>
+                    <ul>
+                        <li>X Funcionalidades</li>
+                        <li>Y Cenários</li>
+                        <li>Z Passos</li>
+                        <li>11h de testes + 2h gerar relatório HTML</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Parelização</h3>
+                <div class="content">
+                    <ul>
+                        <li>2.5h de testes</li>
+                        <li>~3min. gerar relatório</li>
+                    </ul>
+                    <br/>
+                    <a href="https://github.com/jhonatandarosa/cucumbergrid">https://github.com/jhonatandarosa/cucumbergrid</a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Documentação Viva (2017)</h2>
+                <div class="content">
+                    Slide sobre página de features
+                </div>
+            </section>
+
+        </section>
+
+
+        <section data-state="no-toc-progress">
+            <h1 class="no-toc-progress">Obrigado!</h1>
+            <br/>
+            <p class="emphasis">Jhonatan da Rosa</p>
+            <p class="emphasis">Sérgio Murilo Marcos Lopes</p>
+        </section>
+        <section data-state="no-toc-progress">
+            <img class="title" src="imgs/doubts.png"/>
+        </section>
+    </div>
+</div>
+<script>
+    init();
+</script>
+</body>
+</html>

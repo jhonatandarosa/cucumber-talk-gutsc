@@ -1,0 +1,82 @@
+.slide {
+    display: flex;
+    height: 100%;
+}
+
+.slide .content {
+    flex: 1;
+}
+
+.hidden {
+    display: none;
+    font-size: 0px;
+}
+
+img.title {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    margin: 8px 0;
+    padding-bottom: 10px !important;
+}
+.hr-sect:not(first-child) {
+    padding-top: 10px !important;
+}
+.hr-sect::before,
+.hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    margin: 0 8px;
+}
+
+.small-li li {
+    font-size: 1.8rem;
+}
+
+.replacer .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+    height:0px;
+    line-height: 0px;
+    font-size: 0px;
+}
+
+.replacer .fragment.current-visible.visible:not(.current-fragment) {
+    animation: removed-item-animation 1s cubic-bezier(0.6, -0.05, 0.9, 0.9) forwards;
+}
+@keyframes removed-item-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        line-height: 0;
+        font-size: 0;
+        height: 0;
+        display: none;
+    }
+}
+
+.dual-columns {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    list-style: disc inside;//this is important addition
+}
+
+.logo {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
+    padding: 10px !important;
+}

@@ -1,0 +1,81 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+// Default mixins and settings -----------------
+@import "reveal/css/theme/template/mixins";
+@import "reveal/css/theme/template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@font-face {
+  font-family: CronosDisplay;
+  src: url("fonts/Cronos Display.ttf");
+}
+
+@font-face {
+  font-family: AvenirLTBook;
+  src: url("fonts/AvenirLTStd-Book.otf");
+}
+
+@font-face {
+  font-family: FontAwesome;
+  src: url("fonts/FontAwesome.otf");
+}
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: AvenirLTBook, sans-serif;
+$mainColor: #005288;
+$headingFont: CronosDisplay, sans-serif;
+$headingColor: #005288;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #fff;
+$linkColor: #62419A;
+$linkColorHover: lighten($linkColor, 20%);
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }
+}
+
+// Theme template ------------------------------
+@import "reveal/css/theme/template/theme";
+// ---------------------------------------------
+
+#toc-progress-footer {
+  //background-color: rgba(99, 100, 102, 0.05) !important;
+  background-color: #005288 !important;
+  background-image: url("imgs/digitro-logo.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: 10px center !important;
+  background-size: auto 70% !important;
+
+  li {
+    color: #fff;
+    list-style-type: none;
+  }
+  a {
+    color: inherit;
+  }
+  a:after {
+    content: "";
+    display: none;
+  }
+}
+
+b, .emphasis {
+  color: #96A72C;
+}
+
+a:after {
+  font-family: FontAwesome;
+  font-size: 70%;
+  content: " \f0c1";
+}
