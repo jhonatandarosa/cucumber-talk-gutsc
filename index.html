@@ -18,6 +18,9 @@
     <!-- TOC-Progress plugin -->
     <link rel="stylesheet" href="reveal/plugin/toc-progress/toc-progress.css">
 
+    <!-- fullscreen-img plugin -->
+    <link rel="stylesheet" href="reveal/plugin/fullscreen-img/fullscreen-img.css">
+
     <!-- Printing and PDF exports -->
     <script>
         const link = document.createElement('link');
@@ -50,6 +53,7 @@
                     //{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     {src: 'reveal/plugin/markdown/marked.js'},
                     {src: 'reveal/plugin/markdown/markdown.js'},
+                    {src: 'reveal/plugin/fullscreen-img/fullscreen-img.js'},
                     {src: 'reveal/plugin/notes/notes.js', async: true},
                     {
                         src: 'reveal/plugin/highlight/highlight.js',
@@ -96,8 +100,6 @@
                 <small class="emphasis">Jhonatan da Rosa</small>
                 <br/>
                 <small class="emphasis">Sérgio Murilo Marcos Lopes</small>
-                <br/>
-                <small class="emphasis">@ Dígitro Tecnologia</small>
             </p>
         </section>
 
@@ -115,7 +117,7 @@
 
         <section>
             <section>
-                <h2>O Início (2011-2012)</h2>
+                <h2>2011-2012 (O início)</h2>
             </section>
             <section>
                 <h3>O sistema na época</h3>
@@ -163,7 +165,7 @@
             <section>
                 <h2></h2>
                 <div class="content">
-                    Slide sobre os problemas relacionados a falta de documentação
+                    //TODO Slide sobre os problemas relacionados a falta de documentação
                 </div>
             </section>
 
@@ -199,7 +201,7 @@
             </section>
 
             <section>
-                <h3>É</h3>
+                <h3></h3>
                 <div class="content">
                     <ul class="small-li">
                         <li>Suporte a várias linguagens (Java, JS, C++, Python, ...)</li>
@@ -225,11 +227,101 @@
         </section>
 
         <section>
-
             <section>
-                <h2></h2>
+                <h2>2014-2015</h2>
+            </section>
+            <section>
+                <h3>Dados</h3>
                 <div class="content">
-                    <h4>Dados (2015)</h4>
+                    <ul>
+                        <li>~130 Funcionalidades</li>
+                        <li>~1700 Cenários</li>
+                        <li>~1000 Cenários implementados</li>
+                        <li><b>~12h</b> de testes + <b>3h gerar relatório</b> HTML</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/cucumber_jenkins.png" fullscreen-size="contain">
+                <h2><span class="hidden">Cucumber Jenkins</span></h2>
+                <div class="content">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Relatório</h2>
+                <div class="content">
+                    <ul>
+                        <li>fork do plugin do jenkins</li>
+                        <li>--format json</li>
+                        <li>estatísticas</li>
+                        <li>histórico</li>
+                        <li>~3 minutos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_1.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_7.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_2.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_3.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_4.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_6.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+            <section data-state="no-toc-progress" fullscreen-img="sshots/relatorio_5.png" fullscreen-size="contain">
+                <div class="content">
+                </div>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h3>Parelização</h3>
+                <div class="content">
+                    <ul>
+                        <li>Cucumber Grid</li>
+                        <li>2.5h de testes - 4 máquinas</li>
+                        <li>1 feature -> 1 máquina</li>
+                        <li>ordem = qtd. cenários</li>
+                        <li>2.5hrs</li>
+                    </ul>
+                    <br/>
+                    <a href="https://github.com/jhonatandarosa/cucumbergrid">https://github.com/jhonatandarosa/cucumbergrid</a>
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <h2>2017</h2>
+            <section>
+                <h3>Dados</h3>
+                <div class="content">
                     <ul>
                         <li>729 Funcionalidades</li>
                         <li>4731 Cenários</li>
@@ -238,23 +330,15 @@
                     </ul>
                 </div>
             </section>
-
             <section>
-                <h3>Parelização</h3>
+                <h2>Documentação Viva</h2>
                 <div class="content">
-                    <ul>
-                        <li>2.5h de testes</li>
-                        <li>~3min. gerar relatório</li>
-                    </ul>
-                    <br/>
-                    <a href="https://github.com/jhonatandarosa/cucumbergrid">https://github.com/jhonatandarosa/cucumbergrid</a>
+                    Slide sobre página de features
                 </div>
             </section>
 
-            <section>
-                <h2>Documentação Viva (2017)</h2>
+            <section data-state="no-toc-progress" fullscreen-img="sshots/features.png" fullscreen-size="contain">
                 <div class="content">
-                    Slide sobre página de features
                 </div>
             </section>
 
