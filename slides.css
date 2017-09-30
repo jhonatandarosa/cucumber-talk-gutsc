@@ -80,3 +80,9 @@ img.title {
     max-height: 300px !important;
     padding: 10px !important;
 }
+
+.gitlogo tr td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
